@@ -1,0 +1,850 @@
+{
+	"info": {
+		"_postman_id": "2273fff3-c945-4c45-8d58-fdc9866a6fc1",
+		"name": "Intern",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('jwt',pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"criyanshu-678\",\r\n    \"email\":\"tesing@gmail.com\",\r\n    \"password\":\"1234567890\",\r\n    \"passwordConfirm\":\"1234567890\",\r\n    \"firstname\":\"Priyanshu\",\r\n    \"lastname\":\"Mishra\",\r\n    \"phoneNumber\":\"1234567390\",\r\n    \"DOB\":\"01/01/2001\",\r\n    \"address\":\"nifnvr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/users/signup",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('jwt',pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"criyanshu-678\",\r\n    \"password\":\"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/users/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "updateMe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\":\"ss\",\r\n    \"email\":\"ok@gaffffmi.com\",\r\n    \"phoneNumber\":\"909090909\",\r\n    \"firstname\":\"ddvfdm\",\r\n    \"role\":\"politician\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.1.0:3000/v1/users/",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"0"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filteredUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.1.0:3000/v1/users/filteredUser",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"0"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"filteredUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.1.0:3000/v1/users/",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"0"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMe",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set('jwt',pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "127.0.1.0:3000/v1/users/",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"0"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leaveParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/v1/users/leaveParty",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"leaveParty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/v1/users/filterApplication?status=0",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"filterApplication"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadRatingUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/users/filterApplication",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"filterApplication"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "registerParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"partyName\":\"BJP\",\r\n  \"logo\":\"kamal\",\r\n  \"headquater\":\"India\",\r\n  \"motive\":\"vikas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party?partyName=BJP",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party"
+							],
+							"query": [
+								{
+									"key": "partyName",
+									"value": "BJP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"logo\":\"kamal\",\r\n  \"headquater\":\"Irndrria\",\r\n  \"motive\":\"vikas\",\r\n \"leader\":\"criyanshu-678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/BJP",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"BJP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/BJP",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"BJP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UploadRatingParty",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/uploadRating/6081b72bde3eab3e6d4b635e",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"uploadRating",
+								"6081b72bde3eab3e6d4b635e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "partyApplication",
+			"item": [
+				{
+					"name": "filterApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/BJP/application",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"BJP",
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "applyApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "password",
+									"value": "{{jwttoken}}",
+									"type": "string"
+								},
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"application\":\"true\",  \r\n    \"aadharCardNo\":\"123456yy7df890\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/BJP/application",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"BJP",
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeAppStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"applicationNumber\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/party/BJP/application/changeAppStatus",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"party",
+								"BJP",
+								"application",
+								"changeAppStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work",
+			"item": [
+				{
+					"name": "uploadRating",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rating\" : 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/work/6081bfe07249ea328f82b508",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"work",
+								"6081bfe07249ea328f82b508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Work",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\" : \"xyz\",\n\t\"description\" : \"xyz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/v1/work/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"work",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
