@@ -3,9 +3,8 @@
 <h2>
 This is an API for the Political Party Registration and Interaction of the Political Party and Public based on the Work they do for the them. People can also follow their favourite Leaders to get update for the latest work they do
 </h2>
-<br>
 <h2 align="center">Brief Intro Of The Project</h2>
-<h3 align="center">First the User comes from the Public and creates his account having a role of a member not as a Politician. That User creates a Political Party and becomes a leader for that Political Party. Similarly other members also Register as a user and then send their applications to the Political Party which the leader accepts and rejects. If the leader accepts their role change to Politician and if he rejects role remains same as before. Now here comes for giving rating to the Political Party, Members and their works, so each user can rate the above three on the basis of how he is satisfied. All the above mentioned task is done and here is it's API.</h3><br><br>
+<h3 align="center">First the User comes from the Public and creates his account having a role of a member not as a Politician. That User creates a Political Party and becomes a leader for that Political Party. Similarly other members also Register as a user and then send their applications to the Political Party which the leader accepts and rejects. If the leader accepts their role change to Politician and if he rejects role remains same as before. Now here comes for giving rating to the Political Party, Members and their works, so each user can rate the above three on the basis of how he is satisfied. All the above mentioned task is done and here is it's API.</h3>
 
 <h1 align="center">
   Now Lets begin the Interaction !!!</center>
