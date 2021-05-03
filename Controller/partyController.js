@@ -1,6 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const partyModel = require("./../models/partyModel");
 const userModel = require("./../models/userModel");
+const AppError = require("./../utils/appError");
 
 exports.protectAccess = catchAsync(async (req, res, next) => {
   // console.log("in", req.body);
